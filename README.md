@@ -1,0 +1,1 @@
+This project takes an input (in a form of letters) and outputs all possible combinations that match the dictionary list provided.
