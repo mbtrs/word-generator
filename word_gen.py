@@ -1,18 +1,26 @@
-from itertools import combinations
-import re
+while True:
 
-txt = sorted(input("Enter text: "))
-s = set()
-z = 0
+    from itertools import combinations
 
-for i in range(1, len(txt)+1):
-    s.update(combinations(txt, i))
+    txt = sorted(input("Enter text: "))
+    s = set()
+    z = 0
 
-with open("words.txt", "r") as words:
-    for line in words:
-        if tuple(sorted(line.strip())) in s:
-            if len(tuple(sorted(line.strip()))) == 1 or len(tuple(sorted(line.strip()))) == 2:
-                if z:
-                    print(z)
-            else:
-                print(line.strip())
+    for i in range(1, len(txt)+1):
+        s.update(combinations(txt, i))
+
+    with open("words.txt", "r") as words:
+        for line in words:
+            if tuple(sorted(line.strip())) in s:
+                if len(tuple(sorted(line.strip()))) == 1 or len(tuple(sorted(line.strip()))) == 2:
+                    if z:
+                        print(z)
+                else:
+                    print(line.strip())
+
+    reply = input("Another search (y/N): ")
+
+    if reply.lower() == 'no' or reply.lower() == "n":
+        break
+    else:
+        continue
