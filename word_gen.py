@@ -12,15 +12,11 @@ while True:
     with open("words.txt", "r") as words:
         for line in words:
             if tuple(sorted(line.strip())) in s:
-                if len(tuple(sorted(line.strip()))) == 1 or len(tuple(sorted(line.strip()))) == 2:
-                    if z:
-                        print(z)
-                else:
+                if len(tuple(sorted(line.strip()))) > 2:
                     print(line.strip())
 
-    reply = input("Another search (y/N): ")
-
-    if reply.lower() == 'no' or reply.lower() == "n":
-        break
+    has_another_word = input("Another word? ").lower()
+    if has_another_word in ("y", "yes"):
+        pass
     else:
-        continue
+        break
